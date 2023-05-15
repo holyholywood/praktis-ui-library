@@ -2,26 +2,206 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Montserrat:wght@500;700;800;900&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply scroll-smooth;
   }
 }
 
+/* Custom CSS */
+
+@layer components {
+  .font-montserrat {
+    font-family: "Montserrat", sans-serif;
+  }
+  .font-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+  }
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+
+  .bttn {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-primary border-2 border-transparent text-white hover:bg-primary-hover hover:border-primary-hover active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border border-primary text-primary hover:bg-base-hover hover:border-primary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-rounded {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-primary border-2 border-transparent text-white hover:bg-base-primary hover:border-primary-hover active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-rounded-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-primary text-primary hover:bg-base-hover hover:border-primary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-big {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-8 md:h-9 text-xs px-2 h-7 bg-primary border-2 border-transparent text-white hover:bg-base-primary hover:border-primary-hover active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+
+  .bttn-secondary {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-secondary border-2 border-transparent text-white hover:bg-base-primary hover:text-secondary hover:border-secondary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-secondary-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-secondary text-secondary hover:bg-base-hover hover:text-secondary hover:border-secondary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-secondary-rounded {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-secondary border-2 border-transparent text-white hover:bg-base-primary hover:text-secondary hover:border-secondary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-secondary-rounded-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-secondary text-secondary hover:bg-base-hover hover:text-secondary hover:border-secondary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-big-secondary {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-8 md:h-9 text-xs px-2 h-7 bg-secondary border-2 border-transparent text-white hover:bg-base-primary hover:text-secondary hover:border-secondary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+
+  .bttn-quaternary {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-quaternary border-2 border-transparent text-white hover:bg-base-primary hover:text-quaternary hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-quaternary-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-quaternary text-quaternary hover:bg-base-hover hover:text-quaternary hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-quaternary-rounded {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-quaternary border-2 border-transparent text-white hover:bg-base-primary hover:text-quaternary hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-quaternary-rounded-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-quaternary text-quaternary hover:bg-base-hover hover:text-quaternary hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-big-quaternary {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-8 md:h-9 text-xs px-2 h-7 bg-quaternary border-2 border-transparent text-white hover:bg-base-primary hover:text-quaternary hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+
+  .bttn-danger {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-danger border-2 border-transparent text-white hover:bg-base-primary hover:text-danger hover:border-danger active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-danger-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-danger text-danger hover:bg-base-hover hover:text-danger hover:border-danger active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-danger-rounded {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-danger border-2 border-transparent text-white hover:bg-base-primary hover:text-danger hover:border-danger active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-danger-rounded-outline {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm rounded-full md:px-4 md:h-9 text-xs px-2 h-7 bg-base-primary border-2 border-danger text-danger hover:bg-base-hover hover:text-danger hover:border-danger active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+  .bttn-big-danger {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-8 md:h-9 text-xs px-2 h-7 bg-danger border-2 border-transparent text-white hover:bg-base-primary hover:text-danger hover:border-quaternary active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+
+  .bttn-filter {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-2 md:pl-4 md:h-9 text-xs px-2 pl-3 h-7 bg-base-primary border-quaternary text-quaternary hover:bg-slate-200 active:-translate-y-[2px] transition-all duration-300 ease-in-out flex justify-center items-center border-[1px];
+  }
+  .bttn-disabled {
+    @apply md:font-bold font-semibold font-montserrat whitespace-nowrap capitalize md:text-sm md:rounded-lg rounded-md md:px-4 md:h-9 text-xs px-2 h-7 bg-gray-300 border-2 border-transparent text-white cursor-not-allowed active:-translate-y-[2px] transition-all duration-300 ease-in-out;
+  }
+
+  .input-text {
+    @apply font-inter input text-base bg-white pr-8 h-9 text-quaternary border w-full border-gray-300 focus:border-gray-400;
+  }
+
+  .disabled {
+    @apply opacity-70 pointer-events-none;
+  }
+}
+
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */
+
+/* RDP Theme */
+.rdp {
+  --rdp-cell-size: 36px !important;
+  --rdp-cell-size-small: 32px !important;
+  --rdp-cell-size-large: 40px !important;
+  /* Accent color for focused elements */
+  --rdp-accent-color: #3d8da6 !important;
+  --rdp-background-color: #e7edff;
+  /* Switch to dark colors for dark themes */
+  --rdp-accent-color-dark: #3003e1;
+  --rdp-background-color-dark: #180270;
+  /* Outline border for focused elements */
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  /* Outline border for focused and selected elements */
+  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+}
+
+/* style for the first and the last range selected */
+.rdp:not([dir="rtl"]) .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  background-color: #3d8da6 !important;
+  color: #fff !important;
+}
+.rdp:not([dir="rtl"]) .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  background-color: #3d8da6 !important;
+  color: #fff !important;
+}
+/* style for all range selected */
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  color: inherit !important;
+  background-color: #d8e8ed !important;
+}
+
+/* override for collapse daisyui */
+.collapse-title,
+:where(.collapse > input[type="checkbox"]) {
+  padding: 0 !important;
+  padding-right: 0.5rem !important;
+  min-height: 0 !important;
+}
+.modal-box {
+  max-height: inherit !important;
+}
+
+.input-text[disabled] {
+  border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
+  background-color: inherit !important;
+  color: #495057;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px !important;
+  border-radius: 3px;
+}
+/* make height for the vertical is same as horizontal */
+::-webkit-scrollbar:horizontal {
+  height: 8px !important;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8e8ed !important;
+  width: 8px !important;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8e8eddf !important;
 }
