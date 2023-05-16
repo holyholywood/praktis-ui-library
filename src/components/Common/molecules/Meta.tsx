@@ -20,7 +20,7 @@ const Meta: React.FC<MetaDesc> = ({ title, description }) => {
         href="https://fonts.googleapis.com/css2?https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300;400;500&display=swap&display=optional"
         rel="stylesheet"
       />
-      <title>{`${title} - Praktis UI Library`}</title>
+      <title>{`${title ? title + " - " : ""}Praktis UI Library`}</title>
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/static/img/praktis-logo.png" />
     </Head>
@@ -28,7 +28,7 @@ const Meta: React.FC<MetaDesc> = ({ title, description }) => {
 };
 
 Meta.defaultProps = {
-  title: "Praktis UI Library",
+  title: "",
   description: "Praktis UI Library",
 };
 

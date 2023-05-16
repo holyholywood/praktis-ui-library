@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 interface SideMenuItemProps {
   name: string;
-  child: SideMenuChildItemProps[];
+  child?: SideMenuChildItemProps[];
   url: string;
 }
 interface SideMenuChildItemProps {
@@ -10,24 +11,28 @@ interface SideMenuChildItemProps {
   url: string;
 }
 const SideMenuItem = ({ child, name, url }: SideMenuItemProps) => {
+  const router = useRouter();
   return (
     <li>
-      <Link href={url} className="hover:text-secondary hover:underline">
+      <Link href={url} className={`hover:text-primary/80 ${router.pathname === url && "text-primary font-semibold"}`}>
         {name}
       </Link>
-      <ul className="text-sm text-maindark/80 pl-2 space-y-2 py-2">
-        {child.map((child, index) => {
-          return <SideMenuChildItem key={index} componentName={child.componentName} url={child.url} />;
-        })}
-      </ul>
+      {child && (
+        <ul className="text-sm text-maindark/80 pl-2 space-y-2 py-2">
+          {child.map((child, index) => {
+            return <SideMenuChildItem key={index} componentName={child.componentName} url={child.url} />;
+          })}
+        </ul>
+      )}
     </li>
   );
 };
 
 const SideMenuChildItem = ({ componentName, url }: SideMenuChildItemProps) => {
+  const router = useRouter();
   return (
     <li className="w-fit">
-      <Link className="hover:underline hover:text-secondary h-full" href={url}>
+      <Link className={` hover:text-primary/80 h-full ${router.pathname === url && "underline text-primary"}`} href={url}>
         {componentName}
       </Link>
     </li>
@@ -36,7 +41,7 @@ const SideMenuChildItem = ({ componentName, url }: SideMenuChildItemProps) => {
 
 const SideMenu = () => {
   return (
-    <aside className="w-64 sticky h-full border-r border-secondary/50 top-0 left-0">
+    <aside className="w-64 sticky h-full border-r border-secondary/50 top-8 left-0">
       <h3 className="text-secondary text-lg font-semibold">Components</h3>
       <ul className="text pt-4 space-y-4">
         {sideMenuItem.map((el, i) => {
@@ -102,6 +107,14 @@ const OrganismsChild = [
 
 const sideMenuItem = [
   {
+    name: "Philosophy",
+    url: "/philosophy",
+  },
+  {
+    name: "Atomic Design",
+    url: "/atomic-design",
+  },
+  {
     name: "Atoms",
     child: AtomsChild,
     url: "/components/atoms",
@@ -115,5 +128,9 @@ const sideMenuItem = [
     name: "Organisms",
     child: OrganismsChild,
     url: "/components/organisms",
+  },
+  {
+    name: "Installation",
+    url: "/installation",
   },
 ];

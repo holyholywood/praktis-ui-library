@@ -4,7 +4,7 @@ import { IoClipboardOutline } from "react-icons/io5";
 
 const PreText = ({ code }: { code: string }) => {
   return (
-    <div className="bg-gray-200  shadow rounded-sm">
+    <div className="bg-gray-200  shadow rounded-sm my-4">
       <div className="flex px-4 justify-end py-2">
         <Tooltips text="Copy">
           <button onClick={() => copyToClipboard(code)}>

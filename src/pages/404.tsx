@@ -6,8 +6,8 @@ const Error404Page: NextPageCustom = () => {
   const router = useRouter();
   return (
     <main className="flex items-center justify-center flex-col min-h-screen">
-      <FcCancel className="text-7xl" />
-      <div>404 | Not Found</div>
+      <FcCancel className="text-7xl mb-2" />
+      <div className="select-none">404 | Not Found</div>
       <button onClick={router.back} className="text-quaternary/50 duration-500 hover:text-quaternary mt-20 underline">
         Go Back
       </button>
