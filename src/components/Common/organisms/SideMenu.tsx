@@ -20,7 +20,7 @@ const SideMenuItem = ({ child, name, url }: SideMenuItemProps) => {
       {child && (
         <ul className="text-sm text-maindark/80 pl-2 space-y-2 py-2">
           {child.map((child, index) => {
-            return <SideMenuChildItem key={index} componentName={child.componentName} url={child.url} />;
+            return <SideMenuChildItem key={index} componentName={child.componentName} url={url + child.url} />;
           })}
         </ul>
       )}
@@ -54,58 +54,79 @@ const SideMenu = () => {
 
 export default SideMenu;
 
-const AtomsChild = [
+const AtomsChild: sideMenuChildType = [
   {
     componentName: "Button",
-    url: "/components/atoms/button",
+    url: "/button",
   },
   {
     componentName: "Heading",
-    url: "/components/atoms/heading",
+    url: "/heading",
   },
   {
     componentName: "Tooltip",
-    url: "/components/atoms/tooltip",
+    url: "/tooltip",
   },
   {
     componentName: "Input Text",
-    url: "/components/atoms/input-text",
+    url: "/input-text",
   },
   {
     componentName: "Badge",
-    url: "/components/atoms/badge",
+    url: "/badge",
   },
   {
     componentName: "Pills",
-    url: "/components/atoms/pills",
+    url: "/pills",
   },
 ];
-const MoleculesChild = [
+const MoleculesChild: sideMenuChildType = [
   {
     componentName: "Input Group",
-    url: "/components/molecules/input-group",
+    url: "/input-group",
   },
   {
     componentName: "Card",
-    url: "/components/molecules/card",
+    url: "/card",
+  },
+  {
+    componentName: "Section Card",
+    url: "/section-card",
   },
 ];
-const OrganismsChild = [
+const OrganismsChild: sideMenuChildType = [
   {
     componentName: "Modal",
-    url: "/components/organisms/modal",
+    url: "/modal",
   },
   {
     componentName: "Gallery",
-    url: "/components/organisms/gallery",
+    url: "/gallery",
   },
   {
     componentName: "Table",
-    url: "/components/organisms/table",
+    url: "/table",
+  },
+];
+const SpecialsChild: sideMenuChildType = [
+  {
+    componentName: "Category Selector",
+    url: "/category-selector",
   },
 ];
 
-const sideMenuItem = [
+type sideMenuChildType = {
+  componentName: string;
+  url: string;
+}[];
+
+type sideMenuItemType = {
+  name: string;
+  url: string;
+  child?: sideMenuChildType;
+}[];
+
+const sideMenuItem: sideMenuItemType = [
   {
     name: "Philosophy",
     url: "/philosophy",
@@ -128,6 +149,11 @@ const sideMenuItem = [
     name: "Organisms",
     child: OrganismsChild,
     url: "/components/organisms",
+  },
+  {
+    name: "Specials",
+    url: "/components/specials",
+    child: SpecialsChild,
   },
   {
     name: "Installation",

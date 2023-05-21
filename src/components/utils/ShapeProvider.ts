@@ -5,7 +5,7 @@ const baseShapeVariant = {
     className: "md:rounded-lg rounded-md",
   },
   outline: {
-    className: "md:rounded-lg rounded-md border-2 border-transparent",
+    className: "md:rounded-lg rounded-md border",
   },
   rounded: {
     className: "rounded-full",

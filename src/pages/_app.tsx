@@ -1,4 +1,5 @@
 import MainLayout from "@/components/Common/templates/MainLayout";
+import ModalProvider from "@/components/Modal/ModalProvider";
 import "@/styles/globals.css";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
@@ -10,16 +11,19 @@ export type NextPageCustom = NextPage & {
 type AppPropsWithoutLayout = AppProps & {
   Component: NextPageCustom;
 };
+
 export default function App({ Component, pageProps }: AppPropsWithoutLayout) {
   return (
     <>
-      {Component.woLayout ? (
-        <Component {...pageProps} />
-      ) : (
-        <MainLayout>
+      <ModalProvider>
+        {Component.woLayout ? (
           <Component {...pageProps} />
-        </MainLayout>
-      )}
+        ) : (
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        )}
+      </ModalProvider>
     </>
   );
 }

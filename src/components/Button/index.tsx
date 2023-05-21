@@ -13,9 +13,9 @@ const Button = ({ color = "primary", variant = "default", ...props }: ButtonUILi
   return (
     <button
       {...props}
-      className={`${colorProvider(color, variant === "outline")} ${shapeProvider(
-        variant
-      )} md:font-bold font-semibold whitespace-nowrap capitalize md:text-sm md:px-4 md:h-9 text-xs px-2 h-7 active:-translate-y-[2px] transition-all duration-300 ease-in-out`}
+      className={`${colorProvider(color, variant === "outline")} ${shapeProvider(variant)} ${
+        props.className
+      } md:font-bold font-semibold whitespace-nowrap capitalize md:text-sm md:px-4 md:h-9 text-xs px-2 h-7 active:-translate-y-[2px] transition-all duration-300 ease-in-out`}
     />
   );
 };

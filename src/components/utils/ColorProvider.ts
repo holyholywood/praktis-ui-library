@@ -3,7 +3,7 @@ export type colorType = "primary" | "secondary" | "dark" | "light" | "danger" | 
 const baseColor = {
   primary: {
     className: "bg-primary text-white",
-    outlined: "border-primary text-primary",
+    outlined: "bg-base-primary border-primary text-primary",
   },
   secondary: {
     className: "bg-secondary text-white",
@@ -27,7 +27,7 @@ const baseColor = {
   },
   quaternary: {
     className: "bg-quaternary text-white",
-    outlined: "border-quaternary text-white",
+    outlined: "border-quaternary text-quartenary",
   },
   quinary: {
     className: "bg-quinary text-maindark",

@@ -20,7 +20,9 @@ const ButtonComponentPage = ({ pageData }: { pageData: pageContent }) => {
         return <PageContentProvider key={index} content={item.content} type={item.type} />;
       })}
       <div>
-        <Button variant="rounded">Hello World</Button>
+        <Button variant="outline" color="primary">
+          Hello World
+        </Button>
       </div>
     </>
   );
