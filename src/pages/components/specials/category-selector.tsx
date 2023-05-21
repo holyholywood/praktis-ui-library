@@ -2,7 +2,7 @@ import PageContentProvider, { pageContent } from "@/components/Common/templates/
 import SectionCard from "@/components/SectionCard";
 import SelectCategory from "@/components/SelectCategory";
 import { GetServerSideProps } from "next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(process.env.BASE_URL + "/api/components/specials/category-selector");
@@ -40,6 +40,10 @@ const CategorySelectorPage = ({ pageData }: { pageData: pageContent }) => {
   const [category, setCategory] = useState<categoryType>(categorydefaulValue);
   const [fullCategoryName, setFullCategoryName] = useState<string | null>("Sepatu dan Pakaian Wanita > Pakaian > Atasan > Kaos");
 
+  useEffect(() => {
+    console.log(category);
+    console.log("changes");
+  }, [category.level1, category.level2, category.level3, category.level4]);
   return (
     <>
       {pageData.map((item, index) => {

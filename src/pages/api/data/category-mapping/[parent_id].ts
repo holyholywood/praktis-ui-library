@@ -51,52 +51,52 @@ const firstCategory: categoryItemType[] = [
 ];
 const secondCategory = [
   {
-    Name: "Dasi",
+    Name: "Pria",
     id: 1,
     has_child: true,
   },
   {
-    Name: "Kecantikan",
+    Name: "Wanita",
     id: 2,
     has_child: false,
   },
   {
-    Name: "Fashion Wanita",
+    Name: "Bisex",
     id: 3,
     has_child: true,
   },
 ];
 const thirdCategory = [
   {
-    Name: "Dasi",
+    Name: "Formal",
     id: 1,
     has_child: true,
   },
   {
-    Name: "Kecantikan",
+    Name: "Non-Formal",
     id: 2,
     has_child: false,
   },
   {
-    Name: "Fashion Wanita",
+    Name: "Gaya",
     id: 3,
     has_child: true,
   },
 ];
 const fourthCategory = [
   {
-    Name: "Dasi",
+    Name: "Motif",
     id: 1,
-    has_child: true,
+    has_child: false,
   },
   {
-    Name: "Kecantikan",
+    Name: "Polos",
     id: 2,
     has_child: false,
   },
   {
-    Name: "Fashion Wanita",
+    Name: "Polkadot",
     id: 3,
-    has_child: true,
+    has_child: false,
   },
 ];

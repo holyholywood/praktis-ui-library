@@ -54,7 +54,7 @@ type SelectBodyCategoryPropsType = {
 };
 
 const SelectorBody = ({ category, setCategory }: SelectBodyCategoryPropsType) => {
-  const [activeLevel, setActiveLevel] = useState<1 | 2 | 3 | 4>(1);
+  const [activeLevel, setActiveLevel] = useState<1 | 2 | 3 | 4 | number>(1);
   const [categoryList, setCategoryList] = useState<any>();
 
   return (
@@ -113,11 +113,11 @@ type categoryListPropsType = {
   category: categoryType;
   setCategory: React.Dispatch<React.SetStateAction<categoryType>>;
   level: 1 | 2 | 3 | 4;
-  activeLevel: 1 | 2 | 3 | 4;
-  setActiveLevel: React.Dispatch<React.SetStateAction<1 | 2 | 3 | 4>>;
+  activeLevel: 1 | 2 | 3 | 4 | number;
+  setActiveLevel: React.Dispatch<React.SetStateAction<1 | 2 | 3 | 4 | number>>;
 };
 
-const CategoryList = ({ level, activeLevel, category, setCategory }: categoryListPropsType) => {
+const CategoryList = ({ level, activeLevel, setActiveLevel, category, setCategory }: categoryListPropsType) => {
   const [isLoading, setisLoading] = useState(false);
   const [data, setData] = useState<any | null>(null);
   const [error, setError] = useState(null);
@@ -140,8 +140,28 @@ const CategoryList = ({ level, activeLevel, category, setCategory }: categoryLis
     }
   }, [activeLevel]);
 
-  const setCategoryPerLevel = (categoryName: categoryItemType) => {
-    console.log(categoryName);
+  const setCategoryPerLevel = (selectedCategory: categoryItemType) => {
+    // console.log(categoryName);
+    if (level !== 4) {
+      setActiveLevel(level + 1);
+    }
+    console.log(category);
+    switch (level) {
+      case 1:
+        setCategory({ ...category, level1: selectedCategory });
+        break;
+      case 2:
+        setCategory({ ...category, level2: selectedCategory });
+
+        break;
+      case 3:
+        setCategory({ ...category, level3: selectedCategory });
+
+        break;
+      default:
+        setCategory({ ...category, level4: selectedCategory });
+        break;
+    }
   };
   return (
     <ul className="text-sm font-thin">
@@ -179,95 +199,4 @@ type categoryItemType = {
   Name: string;
   id: number;
   has_child: boolean;
-};
-const firstCategory: categoryItemType[] = [
-  {
-    Name: "Dasi",
-    id: 1,
-    has_child: false,
-  },
-  {
-    Name: "Kecantikan",
-    id: 2,
-    has_child: true,
-  },
-  {
-    Name: "Fashion Wanita",
-    id: 3,
-    has_child: true,
-  },
-];
-const secondCategory = [
-  {
-    Name: "Dasi",
-    id: 1,
-    has_child: true,
-  },
-  {
-    Name: "Kecantikan",
-    id: 2,
-    has_child: false,
-  },
-  {
-    Name: "Fashion Wanita",
-    id: 3,
-    has_child: true,
-  },
-];
-const thirdCategory = [
-  {
-    Name: "Dasi",
-    id: 1,
-    has_child: true,
-  },
-  {
-    Name: "Kecantikan",
-    id: 2,
-    has_child: false,
-  },
-  {
-    Name: "Fashion Wanita",
-    id: 3,
-    has_child: true,
-  },
-];
-const fourthCategory = [
-  {
-    Name: "Dasi",
-    id: 1,
-    has_child: true,
-  },
-  {
-    Name: "Kecantikan",
-    id: 2,
-    has_child: false,
-  },
-  {
-    Name: "Fashion Wanita",
-    id: 3,
-    has_child: true,
-  },
-];
-
-// use Fetch
-const useFetch = (url: string) => {
-  const [isLoading, setisLoading] = useState(false);
-  const [data, setData] = useState<any | null>(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setisLoading(true);
-    fetch(url)
-      .then((response) => response.json())
-      .then((result) => {
-        setData(result);
-        setisLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setisLoading(false);
-      });
-  }, [url]);
-
-  return [data, error, isLoading];
 };
