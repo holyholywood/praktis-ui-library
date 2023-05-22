@@ -1,6 +1,7 @@
 import PageContentProvider, { pageContent } from "@/components/Common/templates/PageContentProvider";
 import SectionCard from "@/components/SectionCard";
 import SelectCategory from "@/components/SelectCategory";
+import { categoryType } from "@/components/SelectCategory/type";
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 
@@ -13,23 +14,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   };
 };
-export type categoryItemType = {
-  Name: string;
-  id: number;
-  has_child: boolean;
-};
-export type categoryType = {
-  level1: categoryItemType;
-  level2: categoryItemType;
-  level3: categoryItemType;
-  level4: categoryItemType;
-};
 
 const categorydefaulValue: categoryType = {
-  level1: { Name: "Dasi", id: 1, has_child: false },
-  level2: { Name: "Kecantikan", id: 2, has_child: true },
-  level3: { Name: "Fashion Wanita", id: 3, has_child: false },
-  level4: { Name: "Dasi", id: 4, has_child: true },
+  level1: { Name: "", id: null, has_child: false },
+  level2: { Name: "", id: null, has_child: true },
+  level3: { Name: "", id: null, has_child: false },
+  level4: { Name: "", id: null, has_child: true },
 };
 
 const CategorySelectorPage = ({ pageData }: { pageData: pageContent }) => {
@@ -41,8 +31,9 @@ const CategorySelectorPage = ({ pageData }: { pageData: pageContent }) => {
   const [fullCategoryName, setFullCategoryName] = useState<string | null>("Sepatu dan Pakaian Wanita > Pakaian > Atasan > Kaos");
 
   useEffect(() => {
-    console.log(category);
-    console.log("changes");
+    const categoryKeys: Array<keyof categoryType> = ["level1", "level2", "level3", "level4"];
+    let fullCategoryName = formatCategoryName(categoryKeys.map((key) => category[key].Name));
+    setFullCategoryName(fullCategoryName.length < 1 ? "Select Category" : fullCategoryName);
   }, [category.level1, category.level2, category.level3, category.level4]);
   return (
     <>
@@ -60,3 +51,7 @@ const CategorySelectorPage = ({ pageData }: { pageData: pageContent }) => {
 };
 
 export default CategorySelectorPage;
+
+const formatCategoryName = (array: string[]) => {
+  return array.filter((value) => value !== "").join(" > ");
+};
