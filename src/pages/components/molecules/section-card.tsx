@@ -7,7 +7,7 @@ import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("http://localhost:3000/api/components/molecules/section-card");
+  const response = await fetch(process.env.BASE_URL + "/api/components/molecules/section-card");
   const result = await response.json();
   return {
     props: {

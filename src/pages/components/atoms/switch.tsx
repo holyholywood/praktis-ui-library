@@ -1,10 +1,10 @@
-import QuoteText from "@/components/Common/atoms/QuoteText";
 import PageContentProvider, { pageContent } from "@/components/Common/templates/PageContentProvider";
+import Switch from "@/components/Switch";
 import { GetServerSideProps } from "next";
-import React from "react";
+import React, { useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch(process.env.BASE_URL + "/api/components/molecules");
+  const response = await fetch(process.env.BASE_URL + "/api/components/atoms/switch");
   const result = await response.json();
   return {
     props: {
@@ -13,14 +13,19 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const MoleculesPage = ({ pageData }: { pageData: pageContent }) => {
+const SwitchComponentPage = ({ pageData }: { pageData: pageContent }) => {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <>
       {pageData.map((item, index) => {
         return <PageContentProvider key={index} content={item.content} type={item.type} />;
       })}
+      <div className="my-4">
+        <Switch isChecked={isChecked} setIsCheck={setIsChecked} />
+      </div>
     </>
   );
 };
 
-export default MoleculesPage;
+export default SwitchComponentPage;
