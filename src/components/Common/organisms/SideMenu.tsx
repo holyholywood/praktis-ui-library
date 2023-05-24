@@ -60,6 +60,10 @@ const AtomsChild: sideMenuChildType = [
     url: "/button",
   },
   {
+    componentName: "Badge",
+    url: "/badge",
+  },
+  {
     componentName: "Heading",
     url: "/heading",
   },
@@ -72,8 +76,8 @@ const AtomsChild: sideMenuChildType = [
     url: "/input-text",
   },
   {
-    componentName: "Badge",
-    url: "/badge",
+    componentName: "Switch",
+    url: "/switch",
   },
   {
     componentName: "Pills",
@@ -88,6 +92,10 @@ const MoleculesChild: sideMenuChildType = [
   {
     componentName: "Card",
     url: "/card",
+  },
+  {
+    componentName: "Notification",
+    url: "/notifications",
   },
   {
     componentName: "Section Card",

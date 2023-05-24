@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import React from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("http://localhost:3000/api/components/atoms/badge");
+  const response = await fetch(process.env.BASE_URL + "/api/components/atoms/badge");
   const result = await response.json();
   return {
     props: {

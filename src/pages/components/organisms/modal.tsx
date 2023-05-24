@@ -8,7 +8,7 @@ import { GetServerSideProps } from "next";
 import React, { useContext, useState } from "react";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch("http://localhost:3000/api/components/organisms/modal");
+  const response = await fetch(process.env.BASE_URL + "/api/components/organisms/modal");
   const result = await response.json();
   return {
     props: {
