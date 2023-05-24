@@ -113,6 +113,10 @@ const SpecialsChild: sideMenuChildType = [
     componentName: "Category Selector",
     url: "/category-selector",
   },
+  {
+    componentName: "Upload Image",
+    url: "/upload-image",
+  },
 ];
 
 type sideMenuChildType = {
