@@ -34,5 +34,18 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#f2963d",
+          secondary: "#3d8da6",
+          tertiary: "#F2F2F2",
+          quaternary: "#495057",
+          quinary: "#F2F2F2",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
