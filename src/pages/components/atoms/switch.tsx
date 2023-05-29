@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const SwitchComponentPage = ({ pageData }: { pageData: pageContent }) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const [isProductParentActive, setIsProductParentActive] = useState("ACTIVE");
 
   return (
     <>
@@ -22,7 +22,13 @@ const SwitchComponentPage = ({ pageData }: { pageData: pageContent }) => {
         return <PageContentProvider key={index} content={item.content} type={item.type} />;
       })}
       <div className="my-4">
-        <Switch isChecked={isChecked} setIsCheck={setIsChecked} />
+        <Switch
+          setIsCheck={setIsProductParentActive}
+          isChecked={isProductParentActive}
+          label={{ on: "active", off: "inactive" }}
+          option={{ activeValue: "ACTIVE", inactiveValue: "INACTIVE" }}
+          onChange={(e) => console.info(e)}
+        />
       </div>
     </>
   );
