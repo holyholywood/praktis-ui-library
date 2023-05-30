@@ -115,15 +115,15 @@ const OrganismsChild: sideMenuChildType = [
     componentName: "Table",
     url: "/table",
   },
+  {
+    componentName: "Upload Image",
+    url: "/upload-image",
+  },
 ];
 const SpecialsChild: sideMenuChildType = [
   {
     componentName: "Category Selector",
     url: "/category-selector",
-  },
-  {
-    componentName: "Upload Image",
-    url: "/upload-image",
   },
 ];
 

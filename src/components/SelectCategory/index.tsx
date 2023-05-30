@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Button from "../Button";
 import { AiFillCaretDown } from "react-icons/ai";
-import Modal from "../Modal";
 import SelectorBody from "./SelectorBody";
 import { categoryType } from "./type";
+import Button from "../Button";
+import Modal from "../Modal";
 
 type SelectCategoryPropsType = {
   category: categoryType;

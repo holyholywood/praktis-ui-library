@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RiArrowDropRightLine } from "react-icons/ri";
 import { VscLoading } from "react-icons/vsc";
 import { categoryItemType, categoryType, levelKeyType } from "./type";
+// import useSelectCategory from "./useSelectCategory";
 
 type categoryListPropsType = {
   categoryList: categoryItemType[] | null; //hide
@@ -16,6 +17,7 @@ const CategoryList = ({ level, activeLevel, setActiveLevel, category, setCategor
   const [isLoading, setisLoading] = useState(false);
   const [categoryList, setCategoryList] = useState<any[]>();
   const [levelKey, setLevelKey] = useState<levelKeyType>("level1");
+  // const { getCategoryList } = useSelectCategory();
 
   useEffect(() => {
     switch (level) {
@@ -37,15 +39,15 @@ const CategoryList = ({ level, activeLevel, setActiveLevel, category, setCategor
   useEffect(() => {
     setisLoading(true);
     if (level <= activeLevel) {
-      fetch("http://localhost:3000/api/data/category-mapping/" + level)
-        .then((response) => response.json())
-        .then((result) => {
-          setCategoryList(result.data);
-          setisLoading(false);
-        })
-        .catch((err) => {
-          setisLoading(false);
-        });
+      // fetch("http://localhost:3000/api/data/category-mapping/" + level)
+      //   .then((response) => response.json())
+      //   .then((result) => {
+      //     setCategoryList(result.data);
+      //     setisLoading(false);
+      //   })
+      //   .catch((err) => {
+      setisLoading(false);
+      //   });
     }
   }, [activeLevel]);
 
