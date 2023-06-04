@@ -2,6 +2,7 @@ import PageContentProvider, { pageContent } from "@/components/Common/templates/
 import SectionCard from "@/components/SectionCard";
 import SelectCategory from "@/components/SelectCategory";
 import { categoryType } from "@/components/SelectCategory/type";
+import useSelectCategory from "@/components/SelectCategory/useSelectCategory";
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 
@@ -29,6 +30,8 @@ const CategorySelectorPage = ({ pageData }: { pageData: pageContent }) => {
    */
   const [category, setCategory] = useState<categoryType>(categorydefaulValue);
   const [fullCategoryName, setFullCategoryName] = useState<string | null>("Sepatu dan Pakaian Wanita > Pakaian > Atasan > Kaos");
+
+  const { categoryList, categoryListData, FullCategoryName, selectCategoryHandler } = useSelectCategory();
 
   useEffect(() => {
     const categoryKeys: Array<keyof categoryType> = ["level1", "level2", "level3", "level4"];

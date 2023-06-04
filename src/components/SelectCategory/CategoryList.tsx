@@ -39,15 +39,15 @@ const CategoryList = ({ level, activeLevel, setActiveLevel, category, setCategor
   useEffect(() => {
     setisLoading(true);
     if (level <= activeLevel) {
-      // fetch("http://localhost:3000/api/data/category-mapping/" + level)
-      //   .then((response) => response.json())
-      //   .then((result) => {
-      //     setCategoryList(result.data);
-      //     setisLoading(false);
-      //   })
-      //   .catch((err) => {
-      setisLoading(false);
-      //   });
+      fetch("http://localhost:8080/api/data/category-mapping/" + level)
+        .then((response) => response.json())
+        .then((result) => {
+          setCategoryList(result.data);
+          setisLoading(false);
+        })
+        .catch((err) => {
+          setisLoading(false);
+        });
     }
   }, [activeLevel]);
 

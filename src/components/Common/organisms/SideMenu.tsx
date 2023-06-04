@@ -125,6 +125,10 @@ const SpecialsChild: sideMenuChildType = [
     componentName: "Category Selector",
     url: "/category-selector",
   },
+  {
+    componentName: "Category Selector 2",
+    url: "/item-category-select",
+  },
 ];
 
 type sideMenuChildType = {
