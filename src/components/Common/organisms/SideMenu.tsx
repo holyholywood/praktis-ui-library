@@ -76,6 +76,10 @@ const AtomsChild: sideMenuChildType = [
     url: "/input-text",
   },
   {
+    componentName: "Select",
+    url: "/select",
+  },
+  {
     componentName: "Switch",
     url: "/switch",
   },
