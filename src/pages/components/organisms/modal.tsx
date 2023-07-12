@@ -4,8 +4,8 @@ import PageContentProvider, { pageContent } from "@/components/Common/templates/
 import Modal from "@/components/Modal";
 import useModal from "@/components/Modal/useModal";
 import ModalContext from "@/store/ModalStore";
-import { GetServerSideProps } from "next";
 import React, { useContext, useState } from "react";
+import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const response = await fetch(process.env.BASE_URL + "/api/components/organisms/modal");
