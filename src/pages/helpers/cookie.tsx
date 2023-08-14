@@ -3,27 +3,54 @@ import Heading from "@/components/Common/atoms/Heading";
 import Input from "@/components/Input";
 import React, { useState } from "react";
 import cookie from "@/lib/helpers/cookie";
-import PreText from "@/components/Common/molecules/PreText";
 import Code from "@/components/Common/atoms/Code";
+import { GetServerSideProps } from "next";
 
-const CookiesPage = () => {
+export const getServerSideProps: GetServerSideProps = async ({ req }): Promise<any> => {
+  return {
+    props: {
+      values: "",
+    },
+  };
+};
+
+const CookiesPage = ({ values }: { values: string }) => {
   const [key, setKey] = useState<string>("");
   const [value, setValue] = useState<any>("");
   const [cookieValue, setCookieValue] = useState<any>("");
 
   const setCookieHandler = () => {
-    cookie.set(key, value, { maxAge: 60 * 60 });
+    cookie.set(key, value, { maxAge: 60 * 60, secure: true });
   };
 
   const getCookieHandler = () => {
     const val = cookie.get(key);
-
     setCookieValue(val);
   };
 
   return (
     <div className="space-y-8">
-      <Heading type="title">Cookies Helpers</Heading>
+      <Heading type="title">Cookies Helpers {values}</Heading>
+      <div className="flex gap-4">
+        <Button
+          onClick={async () => {
+            const response = await fetch("http://localhost:8000/api/cookie-check");
+            const result = await response.json();
+            console.info(result);
+          }}
+        >
+          Console Cookie Express
+        </Button>
+        <Button
+          onClick={async () => {
+            const response = await fetch("http://localhost:8080/api/post-getrefreshtoken", { method: "POST" });
+            const result = await response.json();
+            console.info(result);
+          }}
+        >
+          Console Cookie Local
+        </Button>
+      </div>
       <Heading type="subheading">Set Cookie</Heading>
       <Code language="typescript" code={`cookie.set(key, value, options)`} />
       <div className="w-1/2">

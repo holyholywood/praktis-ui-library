@@ -11,7 +11,8 @@ class cookie {
     if (cookieValue) {
       try {
         returnedData = JSON.parse(cookieValue);
-      } catch (error) {
+      } catch (error: any) {
+        console.info(error);
         returnedData = cookieValue;
       }
     }
