@@ -41,9 +41,9 @@ const SideMenuChildItem = ({ componentName, url }: SideMenuChildItemProps) => {
 
 const SideMenu = () => {
   return (
-    <aside className="w-64 sticky h-full border-r border-secondary/50 top-8 left-0">
+    <aside className="w-64 sticky h-full border-r border-secondary/50 top-8 left-0 max-h-[80vh] overflow-y-scroll">
       <h3 className="text-secondary text-lg font-semibold">Components</h3>
-      <ul className="text pt-4 space-y-4">
+      <ul className="text pt-4 space-y-4 ">
         {sideMenuItem.map((el, i) => {
           return <SideMenuItem {...el} key={i} />;
         })}
@@ -135,6 +135,16 @@ const SpecialsChild: sideMenuChildType = [
   },
 ];
 
+const HelpersChild: sideMenuChildType = [
+  {
+    componentName: "Cookie",
+    url: "/cookie",
+  },
+  {
+    componentName: "Jwt Parser",
+    url: "/jwt-parser",
+  },
+];
 type sideMenuChildType = {
   componentName: string;
   url: string;
@@ -174,6 +184,11 @@ const sideMenuItem: sideMenuItemType = [
     name: "Specials",
     url: "/components/specials",
     child: SpecialsChild,
+  },
+  {
+    name: "Helpers",
+    url: "/helpers",
+    child: HelpersChild,
   },
   {
     name: "Installation",

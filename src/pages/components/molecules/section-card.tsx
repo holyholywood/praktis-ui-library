@@ -30,13 +30,6 @@ const SectionCardComponentPage = ({ pageData }: { pageData: pageContent }) => {
         return <PageContentProvider key={index} content={item.content} type={item.type} />;
       })}
       <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
-      <CategoryStore />
     </>
   );
 };
@@ -46,16 +39,11 @@ const CategoryStore = () => {
 
   return (
     <SectionCard>
-      <SectionCard.Header
-        option={{ toggleShow: true }}
-        sectionTitle="Basic SectionCard"
-        openSection={openSection}
-        setOpenSection={setOpenSection}
-      >
-        <Button>tes</Button>
+      <SectionCard.Header option={{ toggleShow: true }} sectionTitle="Head of Section Card" openSection={openSection} setOpenSection={setOpenSection}>
+        <Button>Action Button</Button>
       </SectionCard.Header>
       <SectionCard.Body openSection={openSection} setOpenSection={setOpenSection}>
-        tes
+        Body of Section Card
       </SectionCard.Body>
     </SectionCard>
   );
