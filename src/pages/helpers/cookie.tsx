@@ -29,28 +29,8 @@ const CookiesPage = ({ values }: { values: string }) => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mb-8">
       <Heading type="title">Cookies Helpers {values}</Heading>
-      <div className="flex gap-4">
-        <Button
-          onClick={async () => {
-            const response = await fetch("http://localhost:8000/api/cookie-check");
-            const result = await response.json();
-            console.info(result);
-          }}
-        >
-          Console Cookie Express
-        </Button>
-        <Button
-          onClick={async () => {
-            const response = await fetch("http://localhost:8080/api/post-getrefreshtoken", { method: "POST" });
-            const result = await response.json();
-            console.info(result);
-          }}
-        >
-          Console Cookie Local
-        </Button>
-      </div>
       <Heading type="subheading">Set Cookie</Heading>
       <Code language="typescript" code={`cookie.set(key, value, options)`} />
       <div className="w-1/2">

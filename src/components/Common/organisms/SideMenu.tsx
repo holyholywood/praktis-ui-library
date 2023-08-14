@@ -41,7 +41,7 @@ const SideMenuChildItem = ({ componentName, url }: SideMenuChildItemProps) => {
 
 const SideMenu = () => {
   return (
-    <aside className="w-64 sticky h-full border-r border-secondary/50 top-8 left-0 max-h-[80vh] overflow-y-scroll">
+    <aside className="w-64 sticky  h-[calc(100vh-200px)] top-0 left-0 overflow-y-scroll bg-red-500">
       <h3 className="text-secondary text-lg font-semibold">Components</h3>
       <ul className="text pt-4 space-y-4 ">
         {sideMenuItem.map((el, i) => {
