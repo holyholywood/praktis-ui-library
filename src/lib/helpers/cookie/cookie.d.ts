@@ -4,5 +4,7 @@ export type cookieConfigOption = {
   domain?: string;
   secure?: boolean;
   httpOnly?: boolean;
-  sameSite?: boolean | "none" | "lax" | "strict";
+  sameSite?: SameSiteOption;
 };
+
+export type SameSiteOption = "none" | "lax" | "strict";

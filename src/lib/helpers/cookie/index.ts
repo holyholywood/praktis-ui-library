@@ -19,6 +19,7 @@ class cookie {
 
     return returnedData;
   }
+
   static set(key: string, value: any, { domain = window.location.hostname, httpOnly = false, maxAge = 60 * 60 * 24, secure = false, path = "/", sameSite = "lax" }: cookieConfigOption) {
     const cookieString = `${key}=${cookieValueAdapter(value)};${generateCookieConfig({
       domain,
@@ -31,6 +32,7 @@ class cookie {
 
     document.cookie = cookieString;
   }
+
   static delete(key: string) {
     cookie.set(key, "", {
       maxAge: 0,

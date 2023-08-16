@@ -32,8 +32,8 @@ class BASE_API {
   async get<T>(url: string, params?: URLParameterType): Promise<T> {
     return (await AxiosInstance.get(this.base_url + url + convertParams(params))).data.data;
   }
-  async post(url: string) {
-    return (await AxiosInstance.get(this.base_url + url)).data;
+  async post(url: string, body: { [key: string]: any }) {
+    return (await AxiosInstance.post(this.base_url + url, body)).data;
   }
   async patch(url: string) {
     return (await AxiosInstance.get(this.base_url + url)).data;

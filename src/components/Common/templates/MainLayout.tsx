@@ -8,9 +8,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <main className={`${inter.className} text-maindark min-h-screen`}>
       <TopMenu />
-      <div className="flex mx-auto w-full max-w-7xl relative gap-4 bg-black">
+      <div className="flex mx-auto w-full max-w-7xl relative  ">
         <SideMenu />
-        <section className="h-full w-full">{children}</section>
+        <section className="h-full w-full px-8 md:px-4">{children}</section>
       </div>
     </main>
   );

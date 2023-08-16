@@ -23,26 +23,15 @@ const modalSizeProvider = {
   lg: { className: "w-[90vh] max-w-6xl lg:w-full " },
 };
 
-const Modal = ({
-  isOpen,
-  onOpen,
-  title,
-  size = "default",
-  position = "center",
-  option = { withBackdrop: true },
-  children,
-}: ModalPropsType) => {
+const Modal = ({ isOpen, onOpen, title, size = "default", position = "center", option = { withBackdrop: true }, children }: ModalPropsType) => {
   return (
     <>
       {isOpen &&
         createPortal(
-          <div onClick={() => onOpen(false)} className="min-h-screen w-screen absolute  top-0 z-[100] flex justify-center items-center">
+          <div onClick={() => onOpen(false)} className="min-h-screen w-screen absolute  top-0 z-[100] flex justify-center items-center text-black">
             {option.withBackdrop && <Modal.Backdrop />}
             {/* Modal */}
-            <div
-              onClick={(e) => e.stopPropagation()}
-              className={`bg-white border shadow ${modalSizeProvider[size].className} relative top-0 z-[100] rounded-xl`}
-            >
+            <div onClick={(e) => e.stopPropagation()} className={`bg-white border shadow ${modalSizeProvider[size].className} relative top-0 z-[100] rounded-xl`}>
               {/* Header */}
               <div className="flex justify-between items-center p-4 border-b-2 border-secondary/20">
                 <h1 className="text-lg md:text-2xl">{title}</h1>

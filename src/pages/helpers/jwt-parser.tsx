@@ -28,7 +28,7 @@ const JWTParserPage = () => {
           </label>
           <textarea value={token} onChange={(e) => setToken(e.target.value)} id="token" className="border rounded resize-none w-full min-h-[16rem] focus:outline-none px-2 py-1"></textarea>
           <Button className="" onClick={handleParsing}>
-            Encrypt
+            Parse
           </Button>
         </div>
         <div className="w-1/2 space-y-2">
