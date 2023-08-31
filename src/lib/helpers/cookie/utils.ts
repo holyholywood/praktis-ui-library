@@ -5,7 +5,7 @@ export function cookieValueAdapter(value: any) {
     return JSON.stringify(value);
   }
 
-  return value;
+  return encodeURIComponent(value);
 }
 
 export function generateCookieConfig(option: cookieConfigOption) {

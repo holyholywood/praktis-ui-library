@@ -28,7 +28,7 @@ const TopMenu = () => {
         <nav className="w-full max-w-7xl mx-auto flex justify-between h-16 py-4 pr-4 md:pr-0">
           <div className="flex items-center text-xl gap-2">
             <HiLibrary className="text-primary text-4xl" />
-            <Link href={"/"} className="text-quinary">
+            <Link href={"/"} className="text-quinary hidden md:inline">
               UI Library
             </Link>
           </div>

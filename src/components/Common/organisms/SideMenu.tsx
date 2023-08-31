@@ -41,7 +41,7 @@ const SideMenuChildItem = ({ componentName, url }: SideMenuChildItemProps) => {
 
 const SideMenu = () => {
   return (
-    <aside className="w-64 sticky  h-[calc(100vh-200px)] top-0 left-0 overflow-y-scroll ">
+    <aside className="w-64 sticky  h-[calc(100vh-200px)] top-0 left-0 overflow-y-scroll md:block hidden">
       <h3 className="text-secondary text-lg font-semibold">Components</h3>
       <ul className="text pt-4 space-y-4 ">
         {sideMenuItem.map((el, i) => {
@@ -139,6 +139,10 @@ const HelpersChild: sideMenuChildType = [
   {
     componentName: "Cookie",
     url: "/cookie",
+  },
+  {
+    componentName: "Cryptograph",
+    url: "/cryptograph",
   },
   {
     componentName: "Jwt Parser",

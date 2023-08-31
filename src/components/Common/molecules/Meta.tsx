@@ -16,10 +16,7 @@ const Meta: React.FC<MetaDesc> = ({ title, description }) => {
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#fefefe" />
       <meta name="description" content={description} />
       <meta charSet="utf-8" />
-      <link
-        href="https://fonts.googleapis.com/css2?https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300;400;500&display=swap&display=optional"
-        rel="stylesheet"
-      />
+      <link href="https://fonts.googleapis.com/css2?https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300;400;500&display=swap&display=optional" rel="stylesheet" />
       <title>{`${title ? title + " - " : ""}Praktis UI Library`}</title>
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/static/img/praktis-logo.png" />

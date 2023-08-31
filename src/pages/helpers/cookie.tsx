@@ -6,6 +6,7 @@ import cookie from "@/lib/helpers/cookie";
 import Code from "@/components/Common/atoms/Code";
 import { GetServerSideProps } from "next";
 import { SameSiteOption, cookieConfigOption } from "@/lib/helpers/cookie/cookie";
+import Meta from "@/components/Common/molecules/Meta";
 
 export const getServerSideProps: GetServerSideProps = async ({ req }): Promise<any> => {
   return {
@@ -17,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }): Promise<a
 
 const CookiesPage = ({ values }: { values: string }) => {
   const [option, setOption] = useState<cookieConfigOption>({
-    domain: window.location.hostname,
+    domain: "localhost",
     httpOnly: false,
     secure: false,
     maxAge: 60 * 60,
@@ -34,60 +35,63 @@ const CookiesPage = ({ values }: { values: string }) => {
 
   const getCookieHandler = () => {
     const val = cookie.get(key);
+    console.info(typeof val);
     setCookieValue(val);
   };
 
   return (
-    <div className="space-y-8 mb-8">
-      <Heading type="title">Cookies Helpers {values}</Heading>
-      <Heading type="subheading">Set Cookie</Heading>
-      <Code language="typescript" code={`cookie.set(key, value, options)`} />
-      <div className=" flex flex-col-reverse md:flex-row  gap-4">
-        <div className="w-full space-y-4">
-          <Heading type="subheading">Key & Values</Heading>
-          <label htmlFor="key" className="block">
-            Key
-          </label>
-          <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
-          <label htmlFor="value" className="block">
-            Value
-          </label>
-          <Input id="value" onChange={(e) => setValue(e.target.value)} value={value} />
-          <div>
-            <Button onClick={setCookieHandler} className="mt-8 block">
-              Save
-            </Button>
+    <>
+      <Meta title="Cookies" />
+      <div className="space-y-8 mb-8">
+        <Heading type="title">Cookies Helpers {values}</Heading>
+        <Heading type="subheading">Set Cookie</Heading>
+        <Code language="typescript" code={`cookie.set(key, value, options)`} />
+        <div className=" flex flex-col-reverse md:flex-row  gap-4">
+          <div className="w-full space-y-4">
+            <Heading type="subheading">Key & Values</Heading>
+            <label htmlFor="key" className="block">
+              Key
+            </label>
+            <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
+            <label htmlFor="value" className="block">
+              Value
+            </label>
+            <Input id="value" onChange={(e) => setValue(e.target.value)} value={value} />
+            <div>
+              <Button onClick={setCookieHandler} className="mt-8 block">
+                Save
+              </Button>
+            </div>
           </div>
+          <CookieOptionForm option={option} setOption={setOption} />
         </div>
-        <CookieOptionForm option={option} setOption={setOption} />
+        <Heading type="subheading">Get Cookie</Heading>
+        <Code language="typescript" code={`cookie.get(key)`} />
+        <div className="w-1/2">
+          <label htmlFor="key">Key</label>
+          <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
+        </div>
+        <div className="w-1/2">
+          <label htmlFor="result">Result</label>
+          <textarea value={cookieValue ?? ""} className="border focus:outline-none resize-none w-full px-2 py-1 rounded" readOnly></textarea>
+        </div>
+        <Button onClick={getCookieHandler}>Get</Button>
+        <Heading type="subheading">Delete Cookie</Heading>
+        <Code language="typescript" code={`cookie.delete(key)`} />
+        <div className="w-1/2">
+          <label htmlFor="key">Key</label>
+          <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
+        </div>
+        <Button onClick={() => cookie.delete(key)} color="danger">
+          Delete
+        </Button>
+        <Heading type="subheading">Clear All Cookie</Heading>
+        <Code language="typescript" code={`cookie.clear()`} />
+        <Button onClick={() => cookie.clear()} color="secondary">
+          Clear
+        </Button>
       </div>
-      <Heading type="subheading">Get Cookie</Heading>
-      <Code language="typescript" code={`cookie.get(key)`} />
-      <div className="w-1/2">
-        <label htmlFor="key">Key</label>
-        <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
-      </div>
-      <div className="w-1/2">
-        <label htmlFor="result">Result</label>
-        <textarea value={cookieValue ?? ""} className="border focus:outline-none resize-none w-full px-2 py-1 rounded" readOnly></textarea>
-      </div>
-      <Button onClick={getCookieHandler}>Get</Button>
-      <Heading type="subheading">Delete Cookie</Heading>
-      <Code language="typescript" code={`cookie.delete(key)`} />
-      <div className="w-1/2">
-        <label htmlFor="key">Key</label>
-        <Input id="key" onChange={(e) => setKey(e.target.value)} value={key} />
-      </div>
-      <Button onClick={() => cookie.delete(key)} color="danger">
-        Delete
-      </Button>
-      <Heading type="subheading">Clear All Cookie</Heading>
-      <Code language="typescript" code={`cookie.clear()`} />
-
-      <Button onClick={() => cookie.clear()} color="secondary">
-        Clear
-      </Button>
-    </div>
+    </>
   );
 };
 

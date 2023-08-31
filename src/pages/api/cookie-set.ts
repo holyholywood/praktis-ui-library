@@ -2,9 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<any>) {
-  const refresh = req.cookies.token;
-  // send to beacvkend
-  const token = req.cookies.token;
-  const newAcces = [""];
-  res.status(200).json({ ...req.cookies, token, newAcces });
+  res.setHeader("Set-Cookie", "token=xxxx; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=3600");
+  res.status(200).json({ message: "success setted Token" });
 }
