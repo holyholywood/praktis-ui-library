@@ -1,0 +1,63 @@
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5MjI1NzQ0OSwianRpIjoiNmYzMGRlYzExMWQ5NDgwOWIwNDFhYzFkMjg1ODM0YjMiLCJ1c2VyX2lkIjozfQ.kNO463p01AyGzdPpNOk9aFJ9qDEwyrMITv0AjtgXUNI",
+    "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkyMTc4MjQ5LCJqdGkiOiI5YmExZTYwMWU2MGM0ZDk3YmU1NWJmYWNkOTQ3Y2Y5NyIsInVzZXJfaWQiOjN9.61AvRDa9HiCQdgh2jSjmLRtHvHvcVKGyj9cvsPdIp1k",
+    "expires_in": 7200,
+    "last_login": "2023-08-16T07:30:49.220104Z",
+    "id": 3,
+    "username": "Nizar",
+    "email": "",
+    "name": "",
+    "is_active_user": true,
+    "company": [
+        {
+            "company_id": 1,
+            "company_name": "Apa Aja",
+            "profile_id": 4,
+            "profile_is_active": true,
+            "is_active_company": true,
+            "abbreviation": "AJA",
+            "email_address": null,
+            "NPWP": null,
+            "logo_url": null,
+            "role": [
+                {
+                    "name": "Admin",
+                    "groups": [
+                        {
+                            "role": "inbound",
+                            "permission_level": "write"
+                        },
+                        {
+                            "role": "inbound",
+                            "permission_level": "read"
+                        },
+                        {
+                            "role": "inbound",
+                            "permission_level": "delete"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "activity_log": [
+        {
+            "Activity": "Nizar uploaded Transfer Request",
+            "Time": "2023-08-16 03:09:46"
+        },
+        {
+            "Activity": "Nizar created Safety Stock",
+            "Time": "2023-08-16 03:10:14"
+        },
+        {
+            "Activity": "Nizar uploaded Transfer Request",
+            "Time": "2023-08-16 03:10:34"
+        },
+        {
+            "Activity": "Nizar created Safety Stock",
+            "Time": "2023-08-16 03:11:08"
+        }
+    ],
+    "is_not_read_notif_count": 742,
+    "is_supervisor": false
+}

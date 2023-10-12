@@ -6,8 +6,7 @@ type customButtonProps = {
   color?: colorType;
   variant?: "default" | "outline" | "rounded";
 };
-type ButtonUILibPropsInterface = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
-  customButtonProps;
+type ButtonUILibPropsInterface = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> & customButtonProps;
 
 const Button = ({ color = "primary", variant = "default", ...props }: ButtonUILibPropsInterface) => {
   return (
@@ -15,7 +14,7 @@ const Button = ({ color = "primary", variant = "default", ...props }: ButtonUILi
       {...props}
       className={`${colorProvider(color, variant === "outline")} ${shapeProvider(variant)} ${
         props.className
-      } md:font-bold font-semibold whitespace-nowrap capitalize md:text-sm md:px-4 md:h-9 text-xs px-2 h-7 active:-translate-y-[2px] transition-all duration-300 ease-in-out`}
+      } md:font-bold font-semibold whitespace-nowrap capitalize md:text-sm md:px-4 md:h-9 text-xs px-2 h-7 active:-translate-y-[2px] transition-all duration-300 ease-in-out flex items-center gap-2`}
     />
   );
 };

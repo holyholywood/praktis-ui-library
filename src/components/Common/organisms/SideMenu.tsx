@@ -148,6 +148,10 @@ const HelpersChild: sideMenuChildType = [
     componentName: "Jwt Parser",
     url: "/jwt-parser",
   },
+  {
+    componentName: "Spread Sheet",
+    url: "/spreadsheet",
+  },
 ];
 type sideMenuChildType = {
   componentName: string;
