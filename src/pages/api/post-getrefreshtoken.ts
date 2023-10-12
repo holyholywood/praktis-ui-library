@@ -37,4 +37,6 @@ const User: user = {
       role_template: [],
     },
   ],
+  groups: [],
+  roles: [],
 };

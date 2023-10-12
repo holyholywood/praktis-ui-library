@@ -19,7 +19,7 @@ const UploadImageComponentPage = ({ pageData }: { pageData: pageContent }) => {
       {pageData.map((item, index) => {
         return <PageContentProvider key={index} content={item.content} type={item.type} />;
       })}
-      <UploadImage />
+      {/* <UploadImage /> */}
     </>
   );
 };
