@@ -124,9 +124,9 @@ const CookieOptionForm = ({ option, setOption }: CookieOptionFormPropsType) => {
             value={option.sameSite}
             onChange={(e) => setOption({ ...option, sameSite: e.target.value as SameSiteOption })}
           >
-            <option value="lax">lax</option>
-            <option value="none">none</option>
-            <option value="strict">strict</option>
+            <option value="Lax">Lax</option>
+            <option value="None">None</option>
+            <option value="Strict">Strict</option>
           </select>
         </div>
         <div className="space-y-2 [&>label]:block">

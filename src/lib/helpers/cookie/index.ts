@@ -19,7 +19,11 @@ class cookie {
     return returnedData;
   }
 
-  static set(key: string, value: any, { domain = window.location.hostname, httpOnly = false, maxAge = 60 * 60 * 24, secure = false, path = "/", sameSite = "lax" }: cookieConfigOption) {
+  static set(
+    key: string,
+    value: any,
+    { domain = window.location.hostname, httpOnly = false, maxAge = 60 * 60 * 24, secure = false, path = "/", sameSite = "lax" }: cookieConfigOption
+  ) {
     const cookieString = `${key}=${cookieValueAdapter(value)};${generateCookieConfig({
       domain,
       httpOnly,
@@ -28,7 +32,7 @@ class cookie {
       path,
       sameSite,
     })}`;
-
+    console.info(cookieString);
     document.cookie = cookieString;
   }
 
@@ -41,9 +45,9 @@ class cookie {
   static clear() {
     const cookies = document.cookie.split("; ");
 
-    for (const cookie of cookies) {
-      const [name] = cookie.split("=");
-      document.cookie = `${name}=; max-age=0;`;
+    for (const cookieItem of cookies) {
+      const [name] = cookieItem.split("=");
+      cookie.delete(name);
     }
   }
 }
